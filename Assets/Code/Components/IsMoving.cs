@@ -2,7 +2,7 @@ using Leopotam.Ecs;
 
 namespace Code.Components
 {
-    public struct Player:IEcsIgnoreInFilter
+    public struct IsMoving:IEcsIgnoreInFilter
     {
         
     }

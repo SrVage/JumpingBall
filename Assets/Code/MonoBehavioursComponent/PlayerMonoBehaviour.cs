@@ -12,7 +12,8 @@ namespace Code.MonoBehavioursComponent
         {
             base.Initial(entity, world);
             entity.Get<Physic>().Value = _rigidbody;
-            entity.Get<Player>();
+            entity.Get<PlayerTag>();
+            entity.Get<BindCameraTag>();
         }
     }
 }

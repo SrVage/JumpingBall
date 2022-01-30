@@ -3,7 +3,7 @@ using Leopotam.Ecs;
 
 namespace Code.Gameplay.Systems
 {
-    public class InitStairSystem:IEcsRunSystem
+    public sealed class InitStairSystem:IEcsRunSystem
     {
         private readonly EcsFilter<GeneralStairsNumber, Init> _stairsNumber = null;
         private readonly EcsFilter<Stair> _stairs = null;

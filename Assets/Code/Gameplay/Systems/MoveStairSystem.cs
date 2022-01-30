@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Code.Gameplay.Systems
 {
-    public class MoveStairSystem:IEcsRunSystem
+    public sealed class MoveStairSystem:IEcsRunSystem
     {
         private readonly EcsFilter<GameObjectRef, Stair> _stairs = null;
         private readonly EcsFilter<GeneralStairsNumber> _number = null;

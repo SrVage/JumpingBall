@@ -160,3 +160,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8480192478892615091}
+  _animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.000000006519258
+      value: 0
+      inSlope: 5.571026
+      outSlope: 5.571026
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.020833308
+    - serializedVersion: 3
+      time: 1.0041666
+      value: 1.0117924
+      inSlope: -2.1101856
+      outSlope: -2.1101856
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.041667596
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f09fdc1f89543279f6358511b2bdc7d, type: 3}
   m_Name: SceneObjects
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 0}
+  PlayerPrefab: {fileID: 8480192479061875655, guid: 476e8d5be3376422c80f4d8b07ceaf91, type: 3}
   StairPrefab: {fileID: 7982320921024640018, guid: 24061899c24374f71afe1dff9735e979, type: 3}
-  EnemyPrefab: []
+  EnemyPrefab:
+  - {fileID: 2029456006370339475, guid: 951c9845604fc41ea8ebfc922076f07d, type: 3}
+  - {fileID: 8546731997337251988, guid: 729d1f1ef9bba451eb57c2d3290ae654, type: 3}
