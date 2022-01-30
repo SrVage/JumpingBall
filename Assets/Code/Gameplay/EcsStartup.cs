@@ -32,6 +32,8 @@ namespace Code.Gameplay {
                 .Add(new StateMachine())
                 .Add(new LoadLevelSystem())
                 .Add(new ChangeScreenSystem())
+                .Add(new InitStairSystem())
+                .Add(new MoveStairSystem())
 
                 // .Add (new TestSystem2 ())
                 
@@ -39,6 +41,7 @@ namespace Code.Gameplay {
                 .OneFrame<ChangeState> ()
                 .OneFrame<LoadLevelSignal> ()
                 .OneFrame<TapToStart>()
+                .OneFrame<ChangeStair>()
                 
                 // inject service instances here (order doesn't important), for example:
                 .Inject (_levels)

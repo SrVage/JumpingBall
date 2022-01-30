@@ -1,8 +1,9 @@
+using Code.Abstractions.Interfaces;
 using UnityEngine;
 
 namespace Code.LevelsLoader
 {
-    public class ChangeLevelService
+    public class ChangeLevelService:IChangeLevelService
     {
         private const string LevelNumber = "LevelNumber";
         public int CurrentLevel => _currentLevel;

@@ -1,3 +1,4 @@
+using Code.Components;
 using Code.StatesSwitcher;
 using Code.StatesSwitcher.Events;
 using Leopotam.Ecs;
@@ -28,7 +29,10 @@ namespace Code.Gameplay.Systems
             {
                 ChangeGameState.Change(GameStates.StartState);
             }
-            
+
+            if (Input.GetKeyDown(KeyCode.Q))
+                _world.NewEntity().Get<ChangeStair>();
+
         }
 
         public void Init()
