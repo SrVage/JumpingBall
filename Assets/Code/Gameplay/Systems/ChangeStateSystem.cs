@@ -29,6 +29,11 @@ namespace Code.Gameplay.Systems
             {
                 ChangeGameState.Change(GameStates.StartState);
             }
+            
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ChangeGameState.Change(GameStates.RaitingStates);
+            }
 
             if (Input.GetKeyDown(KeyCode.Q))
                 _world.NewEntity().Get<ChangeStair>();

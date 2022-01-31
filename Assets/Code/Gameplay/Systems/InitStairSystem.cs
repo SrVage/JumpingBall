@@ -22,6 +22,8 @@ namespace Code.Gameplay.Systems
                         minNumber = stairNumber;
                 }
 
+                ref var offset = ref _stairsNumber.Get1(ndx).OffsetValue;
+                offset = maxNumber;
                 ref var entity = ref _stairsNumber.GetEntity(ndx);
                 entity.Del<Init>();
             }

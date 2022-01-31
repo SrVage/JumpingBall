@@ -16,8 +16,7 @@ namespace Code.Gameplay.Systems
                 ref var triggerEntity = ref _trigger.Get1(tdx).Value;
                 if (triggerEntity.Has<PlayerTag>())
                 {
-                    ChangeGameState.Change(GameStates.LoseState);
-                    triggerEntity.DestroyWithGameObject();
+                    triggerEntity.Get<Destroy>();
                 }
                 ref var entity = ref _trigger.GetEntity(tdx);
                 entity.Destroy();

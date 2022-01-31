@@ -27,7 +27,7 @@ namespace Code.Gameplay.Systems
                     target = new Vector3(Random.Range(-2, 3), position.y-stair, position.z+stair);
                 else
                     target = new Vector3(position.x, position.y-stair, position.z+stair);
-                transform.DOJump(target, stair+1, 1, 0.5f*stair).OnComplete(() =>
+                transform.DOJump(target, stair+1, 1, 0.5f*stair).SetEase(Ease.InQuad).OnComplete(() =>
                 {
                     entity.Get<Time>().Value = Random.Range(0.5f, 2f);
                     entity.Get<Done>();

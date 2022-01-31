@@ -8,5 +8,6 @@ namespace Code.Configs
         public GameObject TTSScreen;
         public GameObject GameplayScreen;
         public GameObject LooseScreen;
+        public GameObject RaitingScreen;
     }
 }

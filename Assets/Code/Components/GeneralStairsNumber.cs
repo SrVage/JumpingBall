@@ -4,5 +4,6 @@ namespace Code.Components
     {
         public int MaxValue;
         public int MinValue;
+        public int OffsetValue;
     }
 }

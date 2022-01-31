@@ -7,6 +7,7 @@ namespace Code.Gameplay.Systems
 {
     public sealed class InputHandlerSystem:IEcsRunSystem
     {
+        private const int DeadZone = 10;
         private readonly EcsFilter<InputVector, Done> _input = null;
         private readonly EcsWorld _world = null;
         public void Run()
@@ -16,7 +17,7 @@ namespace Code.Gameplay.Systems
                 ref var startPoint = ref _input.Get1(idx).StartValue;
                 ref var endPoint = ref _input.Get1(idx).EndValue;
                 float x = startPoint.x - endPoint.x;
-                if (Math.Abs(x)<10)
+                if (Math.Abs(x)<DeadZone)
                 {
                     _world.NewEntity().Get<Jump>();
                 }

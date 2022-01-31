@@ -1,7 +1,9 @@
+using Code.Abstractions.Interfaces;
 using Code.Components;
 using Code.Configs;
 using Code.Gameplay.Systems;
 using Code.LevelsLoader;
+using Code.Raiting;
 using Code.StatesSwitcher;
 using Code.StatesSwitcher.Events;
 using Code.StatesSwitcher.States;
@@ -17,9 +19,10 @@ namespace Code.Gameplay {
         [SerializeField] private LevelList _levels;
         [SerializeField] private UIScreen _uiScreen;
         [SerializeField] private SceneObjects _sceneObjects;
+        private IRaitingService _raitingService;
         void Start () {
             // void can be switched to IEnumerator for support coroutines.
-            
+            _raitingService = new RaitingService();
             _world = new EcsWorld ();
             _systems = new EcsSystems (_world);
             ChangeGameState.World = _world;
@@ -32,9 +35,11 @@ namespace Code.Gameplay {
                 .Add(new GameInitial())
                 .Add (new ChangeStateSystem ())
                 .Add(new TriggerHandlerSystem())
+                .Add(new PlayerFallSystem())
+                .Add(new InitLoseSystem())
                 .Add(new StateMachine())
                 .Add(new LoadLevelSystem())
-                .Add(new ChangeScreenSystem())
+                .Add(new ChangeScreenSystem(_raitingService))
                 .Add(new BindCameraSystem())
                 .Add(new InitStairSystem())
                 .Add(new InputSystem())
@@ -45,8 +50,9 @@ namespace Code.Gameplay {
                 .Add(new TimeSystem())
                 .Add(new EnemyJumpSystem())
                 .Add(new DestroyEnemySystem())
+                
                 .Add(new LooseSystem())
-                .Add(new ShowScoresSystem())
+                .Add(new ShowScoresSystem(_raitingService))
 
                 // .Add (new TestSystem2 ())
                 

@@ -25,7 +25,7 @@ namespace Code.UI
         {
             _nextLevelButton.onClick.RemoveAllListeners();
             _entity.Destroy();
-            ChangeGameState.Change(GameStates.StartState);
+            ChangeGameState.Change(GameStates.RaitingStates);
         }
     }
 }

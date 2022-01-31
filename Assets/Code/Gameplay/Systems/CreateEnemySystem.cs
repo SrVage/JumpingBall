@@ -1,6 +1,7 @@
 using Code.Abstractions;
 using Code.Components;
 using Code.Configs;
+using Code.StatesSwitcher.States;
 using Leopotam.Ecs;
 using UnityEngine;
 using Time = Code.Components.Time;
@@ -12,11 +13,12 @@ namespace Code.Gameplay.Systems
         private readonly EcsFilter<GameObjectRef, Stair> _stairs = null;
         private readonly EcsFilter<GeneralStairsNumber> _number = null;
         private readonly EcsFilter<Time, EnemyTag>.Exclude<GameObjectRef> _time = null;
+        private readonly EcsFilter<PlayState> _playState = null;
         private readonly EcsWorld _world = null;
         private readonly SceneObjects _sceneObjects;
         public void Run()
         {
-            if (!_time.IsEmpty())
+            if (!_time.IsEmpty()||_playState.IsEmpty())
                 return;
             foreach (var ndx in _number)
             {

@@ -11,7 +11,7 @@ namespace Code.StatesSwitcher
         WinState = 2,
         LoseState = 3, 
         NextLevelStates = 4,
-        ConfigStates = 5,
+        RaitingStates = 5,
         RestartStates = 6
     }
     public class StateMachine:IEcsRunSystem, IEcsInitSystem
@@ -48,6 +48,9 @@ namespace Code.StatesSwitcher
                         break;
                     case GameStates.LoseState:
                         newState.Get<LoseState>();
+                        break;
+                    case GameStates.RaitingStates:
+                        newState.Get<RaitingState>();
                         break;
                 }
             }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Code.Abstractions.Interfaces;
 using Code.Configs;
 using Code.MonoBehavioursComponent;
 using Code.StatesSwitcher;
@@ -16,8 +17,14 @@ namespace Code.UI.Systems
         private readonly EcsFilter<UIScreens> _uiScreens;
         private readonly EcsFilter<ChangeState> _state;
         private readonly EcsWorld _world;
+        private readonly IRaitingService _raitingService;
         private Transform _canvas;
-        
+
+        public ChangeScreenSystem(IRaitingService raitingService)
+        {
+            _raitingService = raitingService;
+        }
+
         public void Run()
         {
             if (_state.IsEmpty()) return;
@@ -37,6 +44,9 @@ namespace Code.UI.Systems
                     case GameStates.LoseState:
                         StartScreen(_uiScreen.LooseScreen, true);
                         break;
+                    case GameStates.RaitingStates:
+                        StartScreen(_uiScreen.RaitingScreen, true);
+                        break;
                     case GameStates.NextLevelStates:
                         break;
                     case GameStates.RestartStates:
@@ -51,7 +61,10 @@ namespace Code.UI.Systems
         private void StartScreen(GameObject screenPrefab, bool destroyCurrent)
         {
             var screen = GameObject.Instantiate(screenPrefab, _canvas);
-            screen.GetComponent<UIEntity>().Initial(_world);
+            if (screen.TryGetComponent<UIEntity>(out var UI))
+                UI.Initial(_world);
+            if (screen.TryGetComponent<RaitingScreen>(out var raiting))
+                raiting.Initial(_raitingService);
             foreach (var ui in _uiScreens)
             {
                 ref var scree = ref _uiScreens.Get1(ui).Screens;

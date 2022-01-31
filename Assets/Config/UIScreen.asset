@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TTSScreen: {fileID: 1969687814507040373, guid: 7c147f048a515df47b05269ad88d5e04, type: 3}
   GameplayScreen: {fileID: 8915424511068135603, guid: b44464d198c08b7489957ec261c127f9, type: 3}
-  WinScreen: {fileID: 8915424511068135603, guid: f7069ca02bd2f1e49a57a5540c112c8f, type: 3}
-  ConfigScreen: {fileID: 0}
+  LooseScreen: {fileID: 8915424511068135603, guid: f7069ca02bd2f1e49a57a5540c112c8f, type: 3}
+  RaitingScreen: {fileID: 8915424511068135603, guid: 9b5c957b167f443b2b53935e8fc584d6, type: 3}
